@@ -21,16 +21,7 @@ public class JavaApplication85 {
     }
     
     public class MyCustomList<T> implements IMyList<T> {
-        private T element;
         private T[] tablica;
-        
-        public MyCustomList(T element) {
-            this.element=element;
-        }
-        
-        public T getElement() {
-            return element;
-        }
         
         @Override
         public T remove(int index) {return null;}
@@ -47,7 +38,8 @@ public class JavaApplication85 {
 
         @Override
         public void clear() {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            T[] tab = (T[])new Object[0];
+            tablica = tab;
         }
 
         @Override
@@ -57,12 +49,12 @@ public class JavaApplication85 {
 
         @Override
         public T get(int index) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            return tablica[index];
         }
 
         @Override
         public int size() {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            return tablica.length;
         }
     }
     
