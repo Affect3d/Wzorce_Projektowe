@@ -32,23 +32,41 @@ public class Main {
 
         private T[] tablica;
 
-//        public MyCustomList()
-//        {
-//            T[] tablica;
-//        }
+       public MyCustomList()
+       {
+           tablica=new T[0];
+       }
+        
         @Override
         public T remove(int index) {
-            return null;
+            tablica[index]=0;
         }
 
         @Override
         public void add(T element) {
-            tablica[tablica.length] = element;
+            T[] tab = new T[tablica.length+1];
+            for (int i=0; i<tablica.length;i++){
+                tab[i]=tablica[i];
+            }
+            tab[tab.length-1]=element;
+            tablica = tab1;
         }
 
         @Override
         public void add(int index, T element) {
-            tablica[index] = element;
+            T[] tab = new T[tablica.length+1];
+            for (int i=0; i<tablica.length+1;i++){
+                if (i==index) {
+                    tab[i]=element;
+                } else {
+                    if(i>index) {
+                        tab[i]=tablica[i-1];
+                    } else {
+                    tab[i]=tablica[i];
+                    }
+            }
+            
+            tablica = tab1;
         }
 
         @Override
@@ -60,8 +78,11 @@ public class Main {
         @Override
         public T pop() {
             T popped = tablica[tablica.length - 1];
-            tablica[tablica.length - 1] = null;
-            return popped;
+            T[] tab1 = new T[tablica.length-1];
+            for (int i=0; i<tablica.length-1;i++){
+                tab1[i]=tablica[i];
+            }
+            tablica = tab1;
         }
 
         @Override
